@@ -1,4 +1,4 @@
-package com.example.quizapplication
+package com.example.jpwingsnikkeibpomikuji
 
 import android.content.DialogInterface
 import android.content.Intent

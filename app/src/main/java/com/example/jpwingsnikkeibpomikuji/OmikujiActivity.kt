@@ -15,7 +15,7 @@ class OmikujiActivity : AppCompatActivity() {
 
     fun moveToShutudaiSetting(view: View){
         val intent: Intent = Intent( this@OmikujiActivity,
-            shutsudai::class.java)
+            SettingActivity::class.java)
         startActivity(intent)
     }
 

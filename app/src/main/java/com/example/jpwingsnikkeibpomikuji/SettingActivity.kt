@@ -1,4 +1,4 @@
-package com.example.quizapplication
+package com.example.jpwingsnikkeibpomikuji
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
-import com.example.quizapplication.databinding.ActivitySettingBinding
+import com.example.jpwingsnikkeibpomikuji.databinding.ActivitySettingBinding
 
 class SettingActivity : AppCompatActivity() {
 

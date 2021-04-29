@@ -27,6 +27,7 @@ class QuizList : AppCompatActivity() {
 
         val editText: EditText = findViewById(R.id.editTextTextPersonName) as EditText
         val naiyo: String = editText.text.toString()
+        Log.d("MyappPutしてる",naiyo)
         intent.putExtra("naiyo",naiyo)
         startActivity(intent)
     }
