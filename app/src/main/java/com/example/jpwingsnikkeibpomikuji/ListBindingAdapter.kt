@@ -13,7 +13,7 @@ import com.example.jpwingsnikkeibpomikuji.databinding.ActivityQuizListViewBindin
 class ListBindingAdapter(val context: Context, val mhmondais:M_H_MondaiList): BaseAdapter() {
     var inflater: LayoutInflater
     val mhmondai = mhmondais
-
+//コメントテスト
     init{
         Log.d("MyApp","init start")
         inflater = LayoutInflater.from(context)
