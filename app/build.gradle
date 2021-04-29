@@ -15,7 +15,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.jpwingsnikkeibpomikuji"
-        minSdkVersion 16
+        minSdkVersion 26
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -85,7 +85,7 @@ dependencies {
     //compile ("org.apache.poi:poi:4.1.2")'
 
     //xlsxファイルを作成する場合は下記poi-ooxmlが必要'
-    //implementation  "org.apache.poi:poi-ooxml:4.1.2"
+    implementation  "org.apache.poi:poi-ooxml:4.1.2"
 }
 
 
