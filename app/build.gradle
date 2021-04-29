@@ -1,11 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    //↓追加
+    id 'kotlin-android-extensions'
 }
 
 
 android {
     compileSdkVersion 30
+    //自分の方はcompileSdkVersion 29
+    // minSdkVersion 26
+    // taregtSdkVersion 29 でした、それによる異常があるかは把握できてません。
     buildToolsVersion "30.0.3"
 
     defaultConfig {
@@ -47,6 +52,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    //↓追加
+    buildFeatures {
+        viewBinding true
     }
 
 }

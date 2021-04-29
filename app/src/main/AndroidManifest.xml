@@ -14,6 +14,11 @@
         <activity android:name=".shinki_toroku" />
         <activity android:name=".QuizList" />
         <activity android:name=".shutsudai" />
+        //以下追加したactivity
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ResultActivity" />
+        <activity android:name=".SettingActivity" />
+        //ここまで
         <activity android:name=".OmikujiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
