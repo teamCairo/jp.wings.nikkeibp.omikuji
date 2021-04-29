@@ -5,10 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import org.apache.poi.ss.usermodel.CellType
+import org.apache.poi.ss.usermodel.WorkbookFactory
 //import org.apache.poi.ss.usermodel.WorkbookFactory
 
 import org.apache.poi.xssf.usermodel.XSSFWorkbook
 import java.io.FileOutputStream
+import java.nio.file.Paths
 
 
 class ExcelMaintenance : AppCompatActivity() {
@@ -34,17 +37,21 @@ class ExcelMaintenance : AppCompatActivity() {
 
     fun excelShutsuryoku(view: View){
 
-        val workBook = XSSFWorkbook()
-        val sheet = workBook.createSheet()
+        //取込処理なのでEXCELファイルがないからエラーになる。
 
-        //セルを指定
-        val cell = sheet.createRow(0).createCell(0)
-        cell.setCellValue("test")
-
-        //エクセルファイルを保存
-        val fileOutputStream = FileOutputStream("test.xlsx")
-        workBook.write(fileOutputStream)
-        fileOutputStream.close()
+        val file = Paths.get("PoiSampleWorkbook.xlsx").toFile()
+        val book = WorkbookFactory.create(file)
+        val sheet = book.getSheet("Sheet1")
+        sheet.rowIterator().asSequence().forEach { row ->
+            val values = row.cellIterator().asSequence().map { cell ->
+                when (cell.cellType) {
+                    CellType.NUMERIC -> cell.numericCellValue.toString()
+                    CellType.STRING -> cell.stringCellValue
+                    else -> throw RuntimeException("CellType=${cell.cellType}]")
+                }
+            }
+            println(values.toList())
+        }
 
     }
 
