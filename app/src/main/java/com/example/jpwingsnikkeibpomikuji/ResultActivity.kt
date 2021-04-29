@@ -3,6 +3,8 @@ package com.example.jpwingsnikkeibpomikuji
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.content.Context
+import android.content.Intent
+import android.view.View
 import android.widget.TextView
 
 class ResultActivity : AppCompatActivity() {
@@ -12,32 +14,43 @@ class ResultActivity : AppCompatActivity() {
 
         val TextView: TextView = findViewById<TextView>(R.id.resultLabel)
         var score = intent.getIntExtra(
-            "RIGHT_ANSWER_COUNT", 0
+                "RIGHT_ANSWER_COUNT", 0
         )
-        //resultLabel.setText(score.toString()+ "/5")
+
+        //追加（出題数）
+        //var Qquantity = intent.getIntExtra("QQUANTITY", 0)
 
         val resultLabel = findViewById<TextView>(R.id.resultLabel)
-        //val totalScoreLabel = findViewById<TextView>(R.id.totalScoreLabel)
+
 
         //正解数を取得
         score = intent.getIntExtra("RIGHT_ANSWER_COUNT", 0)
 
+        //追加　出題数を取得
+        //Qquantity = intent.getIntExtra("QQUANTITY", 0)
         val prefs = getSharedPreferences("quizApp", Context.MODE_PRIVATE)
         //var totalScore = prefs.getInt("totalScore", 0)
 
-        //トータルスコアに今回のスコアを加算
-        //totalScore += score
 
-       //テキスト表示
-        resultLabel.text = "$score /"
-        //totalScoreLabel.text = ""
+        //テキスト表示
+        resultLabel.text = "$score / 5"
+        //↑/ $Qquantity
 
-        //トータルスコアを保存
-        //val editor = prefs.edit()
-        //editor.putInt("totalScore", totalScore)
-        //editor.apply()
+    }
+
+    //追加　トップ画面への遷移
+    fun moveToMainAct(view: View) {
+        val intent: Intent = Intent(this@ResultActivity,
+                MainActivity::class.java)
+        startActivity(intent)
+
+    }
+
+    fun moveToMain(view: View) {
+        val intent: Intent = Intent(this@ResultActivity,
+                OmikujiActivity::class.java)
+        startActivity(intent)
     }
 }
 
 
-//最終スコアのデータ受け取り→表示

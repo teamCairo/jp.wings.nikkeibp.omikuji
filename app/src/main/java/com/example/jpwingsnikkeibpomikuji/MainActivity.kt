@@ -26,6 +26,8 @@ class MainActivity : AppCompatActivity() {
     private var rightAnswer: String ? = null
     private var rightAnswerCount = 0
     private var quizCount = 1
+    //追加 for クイズ出題数
+    private var limitquiz = 0
 
 
     //空配列定義（文字列）
@@ -42,9 +44,20 @@ class MainActivity : AppCompatActivity() {
         val intent: Intent = getIntent()
 
 
-        //intent intent = getIntent()
+
         //クイズ出題数を受信
-        var QUIZ_COUNT = intent.getIntExtra("QUIZ_QUANTITY", 5)
+        //追加　受信したStringをintへ
+        var QUIZ_COUNT = intent.getStringExtra("QUIZ_QUANTITY")
+
+        val quizcounts : Int = Integer.parseInt(QUIZ_COUNT)
+
+        if (quizcounts != null) {
+            limitquiz = quizcounts
+
+        }
+
+
+
         //上で定義したラベル・ボタンに中身をidで紐付け
         countLabel = this.findViewById<Button>(R.id.countLabel)
         questionLabel = this.findViewById<Button>(R.id.questionLabel)
@@ -102,7 +115,9 @@ class MainActivity : AppCompatActivity() {
 
         //出題した問題の選択肢セットを削除
         quizArray.removeAt(randomNum)
+
     }
+
 
     fun checkAnswer(view: View) {
 
@@ -122,14 +137,24 @@ class MainActivity : AppCompatActivity() {
         builder.setTitle(alertTitle)
         builder.setMessage("答え： $rightAnswer")
         builder.setPositiveButton("OK", DialogInterface.OnClickListener { dialogInterface, i ->
-            if (quizCount == 5) {
+
+            //変更(quizCount == 5 → quizCount == limitquiz)
+            if (quizCount == limitquiz) {
                 val intent = Intent(applicationContext, ResultActivity::class.java)
                 intent.putExtra("RIGHT_ANSWER_COUNT", rightAnswerCount)
                 startActivity(intent)
+
+                //追加resultへ出題数送信がエラーのため一旦保留
+                //val intent1 = Intent(applicationContext, ResultActivity::class.java)
+                //intent.putExtra("QQUANTITY", limitquiz)
+                //startActivity(intent1)
+
+
             } else {
                 quizCount++
                 showNextQuiz()
             }
+
         })
         builder.setCancelable(false)
         builder.show()

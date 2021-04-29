@@ -75,5 +75,3 @@ class SettingActivity : AppCompatActivity() {
 }
 
 
-
-    //遷移ボタン内のプロパティの中身をオーバーライドから呼び出し
