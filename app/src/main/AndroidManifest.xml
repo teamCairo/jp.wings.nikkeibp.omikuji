@@ -9,15 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Jpwingsnikkeibpomikuji">
-        <activity android:name=".MondaiShosai"></activity>
+        <activity android:name=".ExcelMaintenance"></activity>
+        <activity android:name=".MondaiShosai" />
         <activity android:name=".QuizListView" />
         <activity android:name=".shinki_toroku" />
-        <activity android:name=".QuizList" />
-        <!--以下追加したactivity-->
+        <activity android:name=".QuizList" /> <!-- 以下追加したactivity -->
         <activity android:name=".MainActivity" />
         <activity android:name=".ResultActivity" />
-        <activity android:name=".SettingActivity" />
-        <!--ここまで-->
+        <activity android:name=".SettingActivity" /> <!-- ここまで -->
         <activity android:name=".OmikujiActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -10,8 +10,6 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
-//コミットできてますか？
-
 class MondaiShosai : AppCompatActivity() {
 
     var kensakuKey:String = ""

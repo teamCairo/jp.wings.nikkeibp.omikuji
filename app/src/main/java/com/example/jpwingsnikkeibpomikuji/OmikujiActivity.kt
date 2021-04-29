@@ -13,6 +13,13 @@ class OmikujiActivity : AppCompatActivity() {
 
     }
 
+
+    fun moveToExcelMaintenance(view: View){
+        val intent: Intent = Intent( this@OmikujiActivity,
+            ExcelMaintenance::class.java)
+        startActivity(intent)
+    }
+
     fun moveToShutudaiSetting(view: View){
         val intent: Intent = Intent( this@OmikujiActivity,
             SettingActivity::class.java)
