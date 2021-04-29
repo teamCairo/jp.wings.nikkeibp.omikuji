@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<!-- layout の子要素に data タグを追加-->
+<!-- name が layoutの中で参照するときの名前に対応
+     type は　バインドするモデルクラスのFQNとする M_H_Mondai-->
+<data>
+    <variable
+        name="mhmondai"
+        type="com.example.jpwingsnikkeibpomikuji.M_H_Mondai" />
+</data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.jpwingsnikkeibpomikuji.QuizListView">
+
+        <ListView
+            android:id="@+id/list_view"
+            android:layout_width="match_parent"
+            android:layout_height="650dp"
+            tools:listitem="@layout/list_item">
+
+        </ListView>
+
+    </RelativeLayout>
+</layout>

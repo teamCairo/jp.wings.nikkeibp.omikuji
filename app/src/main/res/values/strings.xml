@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">jp.wings.nikkeibp.omikuji</string>
+    <string name="shutsudai">クイズ出題</string>
+    <string name="maintain">クイズメンテナンス</string>
+    <string name="titlekuizu">クイズ道場</string>
+    <string name="hatena">\?</string>
+    <string name="settingGamen">設定画面</string>
+    <string name="mondaisu">問題数</string>
+    <string name="shutsudaisuru">出題する！</string>
+    <string name="defmondaisu">10</string>
+    <string name="quizshinki">クイズ新規登録</string>
+    <string name="quizList">クイズ一覧</string>
+    <string name="torokuOK">OK</string>
+    <string name="deleteAll">すべて削除</string>
+    <string name="modoru">戻る</string>
+    <string name="tolist">一覧へ</string>
+
+
+</resources>
