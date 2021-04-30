@@ -1,0 +1,84 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "69d40f390f2d7aa4ce3fdaf19d247b3e",
+    "entities": [
+      {
+        "tableName": "M_H_Mondai",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `mondai_naiyo` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mondai_naiyo",
+            "columnName": "mondai_naiyo",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "M_M_Mondai",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `sentaku_id` INTEGER NOT NULL, `sentaku_naiyo` TEXT NOT NULL, `seikai_Flg` INTEGER NOT NULL, PRIMARY KEY(`id`, `sentaku_id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sentaku_id",
+            "columnName": "sentaku_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sentaku_naiyo",
+            "columnName": "sentaku_naiyo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "seikai_Flg",
+            "columnName": "seikai_Flg",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id",
+            "sentaku_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [
+      {
+        "viewName": "MondaiDataforExcel",
+        "createSql": "CREATE VIEW `${VIEW_NAME}` AS SELECT m_h_mondai.id\n                    ,m_h_mondai.mondai_naiyo\n                    ,m1.sentaku_naiyo\n                    ,m2.sentaku_naiyo\n                    ,m3.sentaku_naiyo\n                    ,m4.sentaku_naiyo\n                    ,CASE\n                        WHEN m1.seikai_Flg='true' THEN 1\n                        WHEN m2.seikai_Flg='true' THEN 2\n                        WHEN m3.seikai_Flg='true' THEN 3\n                        WHEN m4.seikai_Flg='true' THEN 4\n                    END\n                    FROM m_h_mondai LEFT OUTER JOIN m_m_mondai m1 on m_h_mondai.id = m1.id and m1.sentaku_id =1\n                    LEFT OUTER JOIN m_m_mondai m2 on m_h_mondai.id = m2.id and m2.sentaku_id =2\n                    LEFT OUTER JOIN m_m_mondai m3 on m_h_mondai.id = m3.id and m3.sentaku_id =3\n                    LEFT OUTER JOIN m_m_mondai m4 on m_h_mondai.id = m4.id and m4.sentaku_id =4"
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '69d40f390f2d7aa4ce3fdaf19d247b3e')"
+    ]
+  }
+}
