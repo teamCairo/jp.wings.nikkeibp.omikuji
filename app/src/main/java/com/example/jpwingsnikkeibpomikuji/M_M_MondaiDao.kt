@@ -11,6 +11,9 @@ interface M_M_MondaiDao {
     @Query("SELECT * FROM M_M_Mondai WHERE id = :id and sentaku_id = :sentaku_id")//
     fun getByKey(id: Int,sentaku_id:Int): M_M_Mondai
 
+    @Query("SELECT * FROM M_M_Mondai")//
+    fun getAll(): List<M_M_Mondai>
+
     @Query("DELETE FROM m_m_mondai")
     fun deleteAll()
 

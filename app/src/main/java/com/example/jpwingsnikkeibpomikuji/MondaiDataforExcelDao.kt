@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Query
 
 @Dao
-interface UserRepoDao {
+interface MondaiDataforExcelDao {
     @Query("select * from MondaiDataforExcel")
     fun getAll(): List<MondaiDataforExcel>
 

@@ -7,5 +7,5 @@ import androidx.room.RoomDatabase
     abstract class AppDatabase : RoomDatabase() {
         abstract fun mhMondaiDao(): M_H_MondaiDao
         abstract fun mmMondaiDao(): M_M_MondaiDao
-        abstract fun mondaiDataforExcelDao(): MondaiDataforExcelDao
+    abstract fun mondaiDataforExcelDao(): MondaiDataforExcelDao
     }

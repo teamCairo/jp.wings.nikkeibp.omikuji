@@ -15,7 +15,7 @@ interface M_H_MondaiDao {
     @Query("SELECT * FROM m_h_mondai WHERE rowId = :rowId")
     fun getRowIdMHMondai(rowId: Long): M_H_Mondai
 
-    @Query("SELECT * FROM m_h_mondai")
+    @Query("SELECT * FROM m_h_mondai order by id")
     fun getAll(): List<M_H_Mondai>
 
     @Query("DELETE FROM m_h_mondai")
