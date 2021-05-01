@@ -5,6 +5,8 @@ plugins {
     id 'kotlin-android-extensions'
 }
 
+group 'com.example'
+version '1.0-SNAPSHOT'
 
 android {
     compileSdkVersion 30

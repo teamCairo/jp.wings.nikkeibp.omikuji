@@ -42,15 +42,10 @@ class ExcelMaintenance : AppCompatActivity() {
 
         */
 
-        try {
-            val uploadPath: String = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()
-            val file = Paths.get(uploadPath + File.separator + "torokutest.xlsx").toFile()
-            Log.d("MyApp", file.exists().toString())
-            val book: Workbook = WorkbookFactory.create(file)
-        }catch(e:Exception){
-            Log.d("Myapp",e.stackTrace.toString())
-            Log.d("Myapp",e.message.toString())
-        }
+        val uploadPath: String = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).getAbsolutePath()
+        val file = Paths.get(uploadPath + File.separator + "torokutest.xlsx").toFile()
+        Log.d("MyApp", file.exists().toString())
+        val book: Workbook = WorkbookFactory.create(file)
         /*
         val sheet = book.getSheet("mondai")
 
